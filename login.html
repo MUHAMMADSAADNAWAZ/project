@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function validate(){
+            document.getElementById("usernameError").innerHTML = " ";
+            document.getElementById("passwordError").innerHTML = " ";
+            
+            if(document.getElementById("username").value == '' || document.getElementById("password").value == ''){
+                if(document.getElementById("username").value == ''){
+                    document.getElementById("usernameError").innerHTML  = "username is required";
+                }
+                if(document.getElementById("password").value == ''){
+                    document.getElementById("passwordError").innerHTML  = "password is required";
+                }
+                return false;
+            }
+            return true;
+        }
+    </script>
+    <style>
+        body{
+            background-color: lightgreen;
+        }
+    </style>
+    <title>Foodie Haven - Login Page</title>
+</head>
+<body>
+    <h1 id="loginHeading">Welcome to <span> FOODIE HAVEN </span></h1>
+
+    <div id="loginContainer">
+        <form name="loginForm" action="login" method="post" onsubmit="return validate()">
+            <h3>Login Here</h3>
+            <table>
+
+             <tr>   
+           <td> <label for="username">Username : </label></td>
+           <td> <input type="text" name="username" id="username" placeholder="Enter your username"></td>
+           <td><div id="usernameError" style="color: red; font-size: 20px;"></div></td>
+            </tr>
+
+             <tr>   
+            <td><label for="password">Password : </label> </td>
+            <td><input type="password" name="password" id="password" placeholder="Enter your password"> </td>
+            <td><div id="passwordError" style="color: red; font-size: 20px;"></div></td>
+            </tr>
+
+            <tr>   
+            <td><input type="submit" value="Login"> </td>
+            <td><a href="signup.html">Don`t have an account Signup Here</a> </td>
+            </tr>
+
+            </table>
+        </form>
+    </div>
+
+</body>
+</html>

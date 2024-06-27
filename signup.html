@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function validate(){
+            document.getElementById("nameError").innerHTML = " ";
+            document.getElementById("phoneError").innerHTML = " ";
+            document.getElementById("usernameError").innerHTML = " ";
+            document.getElementById("passwordError").innerHTML = " ";
+            document.getElementById("cPasswordError").innerHTML = " ";
+            if(document.getElementById("name").value == '' || document.getElementById("phone").vaalue == '' || document.getElementById("username").value == '' || document.getElementById("password").value == '' || document.getElementById("cPassword").value == '' ){
+                if(document.getElementById("name").value == ''){
+                    document.getElementById("nameError").innerHTML  = "name is required";
+                }
+                if(document.getElementById("phone").value == ''){
+                    document.getElementById("phoneError").innerHTML  = "phone is required";
+                }
+                if(document.getElementById("username").value == ''){
+                    document.getElementById("usernameError").innerHTML  = "username is required";
+                }
+                if(document.getElementById("password").value == ''){
+                    document.getElementById("passwordError").innerHTML  = "password is required";
+                }
+                if(document.getElementById("cPassword").value == ''){
+                    document.getElementById("cPasswordError").innerHTML  = "confirm password is required";
+                }
+                if(document.getElementById("cPassword").value == '' != document.getElementById("password").value == ''){
+                    document.getElementById("cPasswordError").innerHTML  = "password and confirm password does not match";
+                }
+                return false;
+            }
+                var phoneValue = document.getElementById("phone").value;
+                var phonePattern = /^[0-9]+$/; 
+                if (!phonePattern.test(phoneValue)) {
+                    document.getElementById("phoneError").innerHTML  = "phone is invalid";
+                    alert("Please enter a valid phone number (digits only from 0 to 9).");
+                    return false;
+                }
+            return true;
+        }
+    </script>
+    <style>
+        body{
+            background-image: url("Images/background.jpg");
+            background-repeat:no-repeat;
+            background-size: cover;
+            z-index: -1;
+            opacity: 0.8;
+        }
+    </style>
+    <title>Foodie Haven - Signup Page</title>
+</head>
+<body>
+        <h3 id="sigunpHeading">SignUp Here</h3>
+    <div id="signupContainer">
+        <form action="signup" onsubmit="return validate()">
+            <table>
+            
+            <tr>
+            <td><label for="name">Name : </label></td>
+            <td><input type="text" name="name" id="name" placeholder="Enter Your Name"></td>
+            <td><div id="nameError" style="color: red; font-size: 20px; font-weight: bold;"></div></td>
+            </tr>
+
+            <tr>
+            <td><label for="phone">Phone : </label></td>
+            <td><input type="text" name="phone" id="phone" placeholder="Enter your phone number"></td> 
+            <td><div id="phoneError" style="color: red; font-size: 20px; font-weight: bold;"></div></td>
+            </tr>
+
+            <tr>
+            <td><label for="username">Username : </label></td>
+            <td><input type="text" name="username" id="username" placeholder="Enter Username"></td>
+            <td><div id="usernameError" style="color: red; font-size: 20px; font-weight: bold;"></div></td>
+            </tr>
+
+            <tr>
+            <td><label for="password">Password : </label></td>
+            <td><input type="password" name="password" id="password" placeholder="Enter your password"></td>
+            <td><div id="passwordError" style="color: red; font-size: 20px; font-weight: bold;"></div></td>
+            </tr>
+
+            <tr>
+            <td><label for="cPassword">Confirm Password : </label></td>
+            <td><input type="password" name="cPassword" id="cPassword" placeholder="Enter your password again"></td>
+            <td><div id="cPasswordError" style="color: red; font-size: 20px; font-weight: bold;"></div></td>
+            </tr>
+
+            <tr>
+            <td><input type="submit" value="Create Account"></td>
+            <td><a href="login.html">Back to Login Page</a></td>
+            <td></td>
+            </tr>
+        </table>
+        </form>
+    </div>
+</body>
+</html>
